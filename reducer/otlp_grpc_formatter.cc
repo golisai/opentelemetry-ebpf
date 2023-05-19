@@ -141,6 +141,7 @@ void OtlpGrpcFormatter::format(
   }
 
   if (timestamp_changed) {
+    data_point->set_start_time_unix_nano(integer_time<std::chrono::nanoseconds>(timestamp)-int64_t(30000000000));
     data_point->set_time_unix_nano(integer_time<std::chrono::nanoseconds>(timestamp));
   }
 
